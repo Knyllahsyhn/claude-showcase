@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>claude-code — machbarkeitsstudie</title>
+<meta name="description" content="Eine kleine Machbarkeitsstudie: was Claude Code in ein paar Minuten aus einem leeren Ordner macht.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d2021%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22%23b8bb26%22 font-family=%22monospace%22>&gt;_</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="crt-overlay" aria-hidden="true"></div>
+
+<div class="terminal">
+
+  <header class="titlebar" id="titlebar">
+    <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+    <div class="titlebar-text" id="titlebar-text">tobi@localhost: ~/showcase</div>
+    <div class="titlebar-meta">120×40</div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="pane hero" id="hero" data-title="~/showcase">
+      <div class="prompt-block" id="hero-typewriter" aria-live="polite"></div>
+
+      <h1 class="headline">
+        <span class="headline-prompt">$</span> Claude Code<span class="cursor-blink">_</span>
+      </h1>
+      <p class="subhead">
+        Machbarkeitsstudie, live und in Farbe. Von leerem Ordner zu dieser Seite hier —
+        <strong>ohne</strong> einen einzigen manuell getippten Zeilenumbruch.
+        Scroll runter, Tobi. Alles hier unten ist echt anklickbar.
+      </p>
+      <a href="#demos" class="scroll-hint">
+        <span>$ cd ./demos</span>
+        <span class="arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- ============ DEMOS ============ -->
+    <section class="pane-grid-section" id="demos" data-title="~/showcase/demos">
+      <div class="section-head">
+        <span class="section-prompt">$</span> ls -la demos/
+      </div>
+
+      <div class="pane-grid">
+
+        <!-- Pane 0: Roast Generator -->
+        <article class="demo-pane" id="pane-roast">
+          <div class="pane-header"><span class="pane-index">[0]</span> roast.sh <span class="pane-tag">bash</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Tobi-optimierter Code-Roast-Generator. Wissenschaftlich völlig unfundiert.</p>
+            <div class="output-box" id="roast-output">$ ./roast.sh --target=tobi<br><span class="dim">&gt; bereit. klick den button.</span></div>
+            <button class="run-btn" id="roast-btn">$ run</button>
+          </div>
+        </article>
+
+        <!-- Pane 1: Excuse Generator -->
+        <article class="demo-pane" id="pane-excuse">
+          <div class="pane-header"><span class="pane-index">[1]</span> excuse.rs <span class="pane-tag">rust</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Warum dein Deploy gerade failed. Eine Ausrede, kompiliert in Echtzeit.</p>
+            <div class="output-box" id="excuse-output">$ cargo run --release<br><span class="dim">&gt; bereit. klick den button.</span></div>
+            <button class="run-btn" id="excuse-btn">$ run</button>
+          </div>
+        </article>
+
+        <!-- Pane 2: Compiler-Horoskop -->
+        <article class="demo-pane" id="pane-fortune">
+          <div class="pane-header"><span class="pane-index">[2]</span> fortune <span class="pane-tag">pkg</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Dein Compiler-Horoskop für heute. Astrologie, aber mit Stacktraces.</p>
+            <div class="output-box" id="fortune-output">$ fortune --coding<br><span class="dim">&gt; bereit. klick den button.</span></div>
+            <button class="run-btn" id="fortune-btn">$ run</button>
+          </div>
+        </article>
+
+        <!-- Pane 3: ASCII Banner -->
+        <article class="demo-pane demo-pane-wide" id="pane-ascii">
+          <div class="pane-header"><span class="pane-index">[3]</span> ascii.py <span class="pane-tag">python</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Text rein, echtes Pixel-Sampling raus. Kein Font-Trick — Canvas wird tatsächlich abgetastet.</p>
+            <div class="ascii-controls">
+              <input type="text" id="ascii-input" maxlength="12" placeholder="TOBI" value="TOBI" spellcheck="false">
+              <button class="run-btn" id="ascii-btn">$ render</button>
+            </div>
+            <pre class="output-box ascii-output" id="ascii-output">&gt; gib Text ein und klick render.</pre>
+            <canvas id="ascii-canvas" width="480" height="120" style="display:none"></canvas>
+          </div>
+        </article>
+
+        <!-- Pane 4: Snake -->
+        <article class="demo-pane demo-pane-wide" id="pane-snake">
+          <div class="pane-header"><span class="pane-index">[4]</span> snake.c <span class="pane-tag">c</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Ein vollständiges, spielbares Spiel. Ja, wirklich. Pfeiltasten oder WASD, Klick zum Starten.</p>
+            <div class="snake-wrap">
+              <canvas id="snake-canvas" width="300" height="300"></canvas>
+              <div class="snake-hud">
+                <div class="snake-score">score: <span id="snake-score">0</span></div>
+                <button class="run-btn" id="snake-btn">$ ./snake --start</button>
+                <p class="dim small">steuerung: pfeiltasten / wasd</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pane 5: Session Stats -->
+        <article class="demo-pane demo-pane-wide" id="pane-stats">
+          <div class="pane-header"><span class="pane-index">[5]</span> stats <span class="pane-tag">live</span></div>
+          <div class="pane-body">
+            <p class="pane-desc">Diese Session, in Zahlen. Manche echt, manche nicht — rate welche.</p>
+            <ul class="stats-list" id="stats-list">
+              <li><span class="stat-num" data-target="4">0</span><span class="stat-label">Dateien geschrieben</span></li>
+              <li><span class="stat-num" data-target="0">0</span><span class="stat-label">Kaffeepausen (Claude)</span></li>
+              <li><span class="stat-num" data-target="1">0</span><span class="stat-label">Tabs-vs-Spaces-Debatte</span></li>
+              <li><span class="stat-num" data-target="4">0</span><span class="stat-label">Rückfragen gestellt</span></li>
+              <li><span class="stat-num" data-target="0">0</span><span class="stat-label">Zeilen Doku niemand liest</span></li>
+              <li><span class="stat-num" data-target="99">0</span><span class="stat-label">% Vibes</span></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ BUILD LOG ============ -->
+    <section class="pane log-section" id="buildlog" data-title="~/showcase/build.log">
+      <div class="section-head">
+        <span class="section-prompt">$</span> tail -f build.log
+      </div>
+      <div class="log-window" id="log-window"></div>
+    </section>
+
+    <!-- ============ FOOTER / MAN PAGE ============ -->
+    <section class="pane man-section" id="credits" data-title="~/showcase/credits">
+      <div class="section-head">
+        <span class="section-prompt">$</span> man claude-showcase
+      </div>
+      <div class="man-page">
+        <p><span class="man-h">NAME</span><br>claude-showcase — eine Machbarkeitsstudie, gebaut für einen Kumpel</p>
+        <p><span class="man-h">BESCHREIBUNG</span><br>
+        Diese Seite wurde vollständig von <strong>Claude Code</strong> geschrieben — HTML, CSS, JS,
+        Texte, Witze, das Spiel, der Deploy. Ein Mensch hat Fragen beantwortet und Enter gedrückt.</p>
+        <p><span class="man-h">AUTOR</span><br>Claude Code, unter Aufsicht eines Menschen mit Kaffee.</p>
+        <p><span class="man-h">SIEHE AUCH</span><br>
+          <a href="https://claude.com/claude-code" target="_blank" rel="noopener">claude.com/claude-code</a> ·
+          <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener">github.com/anthropics/claude-code</a>
+        </p>
+        <p class="man-exit">$ exit</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
