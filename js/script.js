@@ -91,6 +91,10 @@
       'Tobi, du hast console.log("hier") drin gelassen. Wir sehen es alle.',
       'Tobi, dein Code funktioniert — aber nur wenn du daneben stehst und guckst.',
       'Tobi, du nennst es "Legacy Code". Wir nennen es "Montag".',
+      'Tobi, bei BMW nennt man sowas Toleranzabweichung. Bei dir nennt man es Montag.',
+      'Tobi, du bist Maschinenbauer — dein Code hat trotzdem mehr Spiel als ein 30 Jahre altes Getriebe.',
+      'Tobi, du konstruierst auf den Mikrometer genau und schreibst Code frei nach Gehör. Interessante Prioritäten.',
+      'Tobi, selbst Bill Bo Kraxel hätte diesen Pull Request nicht gemergt.',
     ];
     let last = -1;
     btn.addEventListener('click', () => {
@@ -120,6 +124,10 @@
       'Die Staging-Umgebung hat sich das nur eingebildet.',
       'Da war ein Leerzeichen zu viel. Genau eins. Irgendwo.',
       'CI ist grün, Prod ist rot — Statistik sagt: im Schnitt läuft es.',
+      'Ich war beim Klavierüben. Der Bug konnte warten, die Tonleiter nicht.',
+      'Die OPNsense-Regel Nummer 47 hat sich selbst ausgesperrt. Ich hab sie eingerichtet, nicht verstanden.',
+      'Bei 180 BPM committet man schneller, als man denkt. Das war Gabber, nicht ich.',
+      'Meine eigene Firewall war strenger zu mir als zu allen anderen im Netzwerk.',
     ];
     let last = -1;
     btn.addEventListener('click', () => {
@@ -149,6 +157,10 @@
       'Du wirst heute "es funktioniert bei mir" sagen. Es wird nicht reichen.',
       'Ein Test wird heute rot. Er hat schon lange rot sein wollen.',
       'Deine nächste Idee um 23 Uhr ist besser als alles, was du tagsüber hattest.',
+      'Heute merged du wie die Augsburger Puppenkiste inszeniert: mit sichtbaren Fäden, trotzdem elegant.',
+      'Ein Freund seit über 10 Jahren committet auch mal Mist. Das gehört zur Freundschaft dazu.',
+      'Ein zehn Jahre alter Freundschafts-Branch hat noch nie einen Merge-Konflikt gebraucht.',
+      'Dein Klavierspiel ist besser abgestimmt als dein Merge-Konflikt-Resolver.',
     ];
     let last = -1;
     btn.addEventListener('click', () => {
@@ -383,6 +395,8 @@
       ['16', 'user', 'user', '"aber das log ist nicht das echte, seh ich"'],
       ['17', 'busted', 'busted', 'stimmt. erwischt. Fake-Uhrzeiten raus, echte Reihenfolge und echtes Zitat rein.'],
       ['18', 'ok', 'done', 'jetzt ist es wirklich das echte Log. bis hier gelesen? respekt.'],
+      ['19', 'user', 'user', 'schickt echte Tobi-Infos: BMW, Maschinenbau, Musik, Puppenkiste, OPNsense-Homelab, 10+ Jahre Freundschaft'],
+      ['20', 'ok', 'update', 'Insider-Jokes in roast/excuse/fortune gemischt, Easter Egg "billbo" gebaut, BUGS-Sektion im Footer ergänzt'],
     ];
 
     const tagClass = { user: 'tag-user', skill: 'tag-skill', sys: 'tag-sys', git: 'tag-git', ok: 'tag-ok', busted: 'tag-busted' };
@@ -412,6 +426,50 @@
       });
     }, { threshold: 0.2 });
     obs.observe(win);
+  })();
+
+  /* ==========================================================
+     9. Easter egg — type "billbo" anywhere on the page
+     ========================================================== */
+  (() => {
+    const code = 'billbo';
+    let buffer = '';
+    let toastEl = null;
+    let hideTimer = null;
+
+    function showToast() {
+      if (!toastEl) {
+        toastEl = document.createElement('div');
+        toastEl.className = 'easter-toast';
+        toastEl.innerHTML =
+          '<div class="easter-toast-head">$ whoami --secret</div>' +
+          '<div class="easter-toast-body">' +
+          '&gt; Bill Bo Kraxel lässt grüßen.<br>' +
+          '&gt; zwei Kumpels seit über 10 Jahren,<br>' +
+          '&gt; ein Heimnetzwerk mit mehr Firewall-Regeln als nötig,<br>' +
+          '&gt; Musik bei 180 BPM, Bauteile bei 0.01mm Toleranz.<br>' +
+          '$ <span class="cursor-blink">_</span>' +
+          '</div>';
+        document.body.appendChild(toastEl);
+        toastEl.addEventListener('click', hideToast);
+      }
+      toastEl.classList.add('visible');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hideToast, 7000);
+    }
+
+    function hideToast() {
+      if (toastEl) toastEl.classList.remove('visible');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key.length !== 1) return;
+      buffer = (buffer + e.key.toLowerCase()).slice(-code.length);
+      if (buffer === code) {
+        buffer = '';
+        showToast();
+      }
+    });
   })();
 
 })();
