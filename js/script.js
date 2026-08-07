@@ -324,6 +324,8 @@
       ArrowRight: { x: 1, y: 0 }, d: { x: 1, y: 0 }, D: { x: 1, y: 0 },
     };
     window.addEventListener('keydown', (e) => {
+      const active = document.activeElement;
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return;
       const d = keyMap[e.key];
       if (!d) return;
       if (!document.body.contains(canvas)) return;
