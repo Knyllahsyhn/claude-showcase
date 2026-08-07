@@ -94,6 +94,7 @@
       'Tobi, bei BMW nennt man sowas Toleranzabweichung. Bei dir nennt man es Montag.',
       'Tobi, du bist Maschinenbauer — dein Code hat trotzdem mehr Spiel als ein 30 Jahre altes Getriebe.',
       'Tobi, du konstruierst auf den Mikrometer genau und schreibst Code frei nach Gehör. Interessante Prioritäten.',
+      'Tobi, nach deinem VBA-Jahr bei BMW ist jede andere Sprache Urlaub für dich.',
       'Tobi, selbst Bill Bo und seine Bande hätten diesen Pull Request nicht erobert.',
     ];
     let last = -1;
@@ -128,6 +129,7 @@
       'Die OPNsense-Regel Nummer 47 hat sich selbst ausgesperrt. Ich hab sie eingerichtet, nicht verstanden.',
       'Bei 180 BPM committet man schneller, als man denkt. Das war Gabber, nicht ich.',
       'Meine eigene Firewall war strenger zu mir als zu allen anderen im Netzwerk.',
+      'Ein VBA-Macro sollte die Daten nur von A nach B bringen. Es hat eigene Pläne entwickelt.',
     ];
     let last = -1;
     btn.addEventListener('click', () => {
@@ -400,6 +402,8 @@
       ['19', 'user', 'user', 'schickt echte Tobi-Infos: BMW, Maschinenbau, Musik, Puppenkiste, OPNsense-Homelab, 10+ Jahre Freundschaft'],
       ['20', 'ok', 'update', 'Insider-Jokes in roast/excuse/fortune gemischt, Easter Egg "billbo" gebaut, BUGS-Sektion im Footer ergänzt'],
       ['21', 'busted', 'busted', '"Bill Bo Kraxel" war erfunden — Verwechslung mit dem Hobbit. Echt: Bill Bo, Räuberhauptmann aus "Bill Bo und seine Bande"'],
+      ['22', 'user', 'user', 'noch ein Detail: VBA-Trauma aus der BMW-Anfangszeit, Daten von A nach B'],
+      ['23', 'ok', 'update', 'roast.sh und excuse.rs um je eine VBA-Zeile ergänzt'],
     ];
 
     const tagClass = { user: 'tag-user', skill: 'tag-skill', sys: 'tag-sys', git: 'tag-git', ok: 'tag-ok', busted: 'tag-busted' };
