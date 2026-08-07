@@ -395,6 +395,7 @@ main { padding: 0; }
 .log-tag.tag-sys { color: var(--fg-dim); }
 .log-tag.tag-git { color: var(--orange); }
 .log-tag.tag-ok { color: var(--green); }
+.log-tag.tag-busted { color: var(--red); font-weight: 700; }
 .log-text { color: var(--fg); }
 @keyframes log-in { to { opacity: 1; } }
 
