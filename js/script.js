@@ -94,7 +94,7 @@
       'Tobi, bei BMW nennt man sowas Toleranzabweichung. Bei dir nennt man es Montag.',
       'Tobi, du bist Maschinenbauer — dein Code hat trotzdem mehr Spiel als ein 30 Jahre altes Getriebe.',
       'Tobi, du konstruierst auf den Mikrometer genau und schreibst Code frei nach Gehör. Interessante Prioritäten.',
-      'Tobi, selbst Bill Bo Kraxel hätte diesen Pull Request nicht gemergt.',
+      'Tobi, selbst Bill Bo und seine Bande hätten diesen Pull Request nicht erobert.',
     ];
     let last = -1;
     btn.addEventListener('click', () => {
@@ -397,6 +397,7 @@
       ['18', 'ok', 'done', 'jetzt ist es wirklich das echte Log. bis hier gelesen? respekt.'],
       ['19', 'user', 'user', 'schickt echte Tobi-Infos: BMW, Maschinenbau, Musik, Puppenkiste, OPNsense-Homelab, 10+ Jahre Freundschaft'],
       ['20', 'ok', 'update', 'Insider-Jokes in roast/excuse/fortune gemischt, Easter Egg "billbo" gebaut, BUGS-Sektion im Footer ergänzt'],
+      ['21', 'busted', 'busted', '"Bill Bo Kraxel" war erfunden — Verwechslung mit dem Hobbit. Echt: Bill Bo, Räuberhauptmann aus "Bill Bo und seine Bande"'],
     ];
 
     const tagClass = { user: 'tag-user', skill: 'tag-skill', sys: 'tag-sys', git: 'tag-git', ok: 'tag-ok', busted: 'tag-busted' };
@@ -444,7 +445,7 @@
         toastEl.innerHTML =
           '<div class="easter-toast-head">$ whoami --secret</div>' +
           '<div class="easter-toast-body">' +
-          '&gt; Bill Bo Kraxel lässt grüßen.<br>' +
+          '&gt; Bill Bo und seine Bande lassen grüßen.<br>' +
           '&gt; zwei Kumpels seit über 10 Jahren,<br>' +
           '&gt; ein Heimnetzwerk mit mehr Firewall-Regeln als nötig,<br>' +
           '&gt; Musik bei 180 BPM, Bauteile bei 0.01mm Toleranz.<br>' +
